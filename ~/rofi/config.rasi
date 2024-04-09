@@ -1,0 +1,4 @@
+@import "/usr/share/rofi/themes/solarized_alternate.rasi"
+//@theme "/usr/share/rofi/themes/arthur.rasi"
+//@theme "/usr/share/rofi/themes/dmenu.rasi"
+@theme "/usr/share/rofi/themes/arthur.rasi"
