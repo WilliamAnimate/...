@@ -1,7 +1,0 @@
-#!/bin/dash
-
-BRIGHTNESS=$(brightnessctl info | awk '/Current brightness:/ {print $4}')
-BRIGHT=$(echo $BRIGHTNESS | tr -d '()')
-echo " $BRIGHT"
-exit 0
-
