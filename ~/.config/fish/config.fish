@@ -1,15 +1,21 @@
-# export MOZ_ENABLE_WAYLAND=1
+source $HOME/.config/fish/yeet.fish # autologin on getty@tty1
+
 alias sshprime='eval (ssh-agent -c); ssh-add ~/.ssh/id_rsa'
 
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_nerd_fonts yes
+set -g theme_display_date no
+set -g theme_color_scheme catppuccin-mocha
 
 export EDITOR=nvim
 
+alias sudo='doas'
 alias v='nvim'
 alias vi='nvim'
-alias vim='nvim'
-alias nyavim='/bin/vi'
+# alias vim='nvim'
+alias mem='~/.config/scripts/memory'
+alias vol='~/.config/scripts/volume'
+alias bright='~/.config/scripts/brightness'
 
 alias start="~/startdolphin.sh"
 
@@ -49,7 +55,7 @@ alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'          # List amount of -gi
 alias update='sudo pacman -Syu'
 
 # Get fastest mirrors
-alias mirror="sudo cachyos-rate-mirrors"
+alias mirror="rate-mirrors"
 
 # Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
@@ -59,3 +65,7 @@ alias jctl="journalctl -p 3 -xb"
 
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
+
+# Created by `pipx` on 2024-07-03 22:35:12
+set PATH $PATH /home/william/.local/bin

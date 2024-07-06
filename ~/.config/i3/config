@@ -1,5 +1,3 @@
-# i3 config file (v4)
-#
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # dependencies:
@@ -13,12 +11,13 @@
 set $mod Mod4
 
 # nice (no not the priority thing)
+# not nice.
 bindsym Print exec flameshot gui
 
 # may or may not work, dk.
-exec gnome-keyring-daemon --start
+# exec gnome-keyring-daemon --start
 # fucking torguard. you need polkit-kde-agent for this.
-exec /usr/lib/polkit-kde-authentication-agent-1
+# exec /usr/lib/polkit-kde-authentication-agent-1
 
 # font for window titles in tabbed or stacked mode, or whenever its visible.
 font pango:Lexend 11
@@ -29,7 +28,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -84,12 +83,88 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-set $ws1 "1:  Terminal"
-set $ws2 "2:  Browser"
-# set $ws2 "2:  Firefox"
-#  brave
-set $ws3 "3:  Hollywood cmatrix hacker stuff"
-set $ws4 "4:  Discord"
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log off?' -B 'Yes, exit i3 & sigkill Xorg' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log off?' -B 'Yes, exit i3 & sigkill Xorg' 'i3 exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+mode "$power" {
+  # bindsym s exec /home/william/.config/scripts/lock, mode "default", exec systemctl suspend
+  bindsym l exec /home/william/.config/scripts/lock, mode "default"
+  bindsym $mod+h exec shutdown now
+  bindsym $mod+r exec reboot
+
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym $mod+p mode "default"
+}
+
+set $power Power option: [s]leep, [meta]+[h]alt, [meta]+[r]eboot
+bindsym $mod+p mode "$power"
+
+bar {
+  position top
+  # status_command i3blocks -c /home/william/.config/i3blocks/i3blocks.conf
+  status_command i3status-rs /home/william/.config/i3/i3status-rs.toml
+  #status_command i3status
+  i3bar_command i3bar --transparency
+  # tray_output none
+  font pango: Fira Code 10
+# you dont need glasses, right?
+  colors {
+    background $bar-color
+    statusline #dddddd
+    # background #00000000
+        # separator #cdd6f4
+        # separator #000
+        # focused_workspace	$focused-ws	$focused-ws	$text
+        # inactive_workspace	$in-bgcolor	$in-bgcolor	$in-text
+        # urgent_workspace	$u-bgcolor	$u-bgcolor	$text
+        focused_workspace	$bgcolor $in-bgcolor $in-text
+        inactive_workspace	$in-bgcolor	$in-bgcolor	$in-text
+        urgent_workspace	$u-bgcolor	$u-bgcolor	$text
+    }
+}
+
+# Display Wallpaper
+# exec_always feh --bg-fill /home/william/nya~wp4b.png
+# exec_always feh --bg-fill /home/william/Polarnight.png
+exec_always feh --bg-fill /home/william/Polarnight_c.jpg
+# exec_always feh --bg-fill "/home/william/glorious nyarch.png"
+# exec_always feh --bg-fill "/home/william/glorious leo.jpg"
+# exec_always feh --bg-fill "/home/william/i wish.jpg"
+# lockscreen shortcut
+bindsym $mod+l exec /home/$USER/.config/scripts/lock
+
+
+# set $ws1 "1:  Terminal"
+# set $ws2 "2:  Browser"
+# # set $ws2 "2:  Firefox"
+# #  brave
+# set $ws3 "3:  Hollywood cmatrix hacker stuff"
+# set $ws4 "4:  Discord"
+# set $ws5 "5:  Steam"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -121,80 +196,13 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Log off?' -B 'Yes, exit i3 & sigkill Xorg' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-  bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-mode "$power" {
-  bindsym s exec /home/$USER/.config/scripts/lock, mode "default", exec systemctl suspend
-  # bindsym l exec /home/$USER/.config/scripts/lock, mode "default"
-  bindsym $mod+h exec shutdown now
-  bindsym $mod+r exec reboot
-
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-  bindsym $mod+p mode "default"
-}
-
-set $power Power option: [s]leep, [meta]+[h]alt, [meta]+[r]eboot
-bindsym $mod+p mode "$power"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  position top
-  status_command i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
-  #status_command i3status
-	i3bar_command i3bar --transparency
-  # i3bar_command i3bar
-	tray_output none
-	# font pango: Fira Code Nerd Font 10
-	font pango: Fira Code 10
-	# font pango: Lexend 10
-# ^ you dont need glasses, right?
-	colors {
-		background $bar-color
-    # background #00000000
-		separator #191919
-		#			border		background	text
-		focused_workspace	$focused-ws	$focused-ws	$text
-		inactive_workspace	$in-bgcolor	$in-bgcolor	$text
-		urgent_workspace	$u-bgcolor	$u-bgcolor	$text	
-
-	}
-}
-
-# Display Wallpaper
-# exec_always feh --bg-fill /home/william/nya~wp4b.png
-# exec_always feh --bg-fill /home/william/Polarnight.png
-# exec_always feh --bg-fill /home/william/Polarnight_c.jpg
-# exec_always feh --bg-fill "/home/william/glorious nyarch.png"
-exec_always feh --bg-fill "/home/william/glorious leo.jpg"
-# lockscreen shortcut
-bindsym $mod+l exec /home/$USER/.config/scripts/lock
-
 # move applications to workspaces
 for_window [class="firefox"] move to workspace $ws2
 for_window [class="Brave-browser"] move to workspace $ws2
 for_window [class="cachy-browser"] move to workspace $ws2
+for_window [class="steam"] move to workspace $ws5
 for_window [class="TorGuard"] move to workspace $ws5
+for_window [class="osu!"] move to workspace $ws6
 # ff is slow sometimes, and i made this "rice" on my slow computer
 # admittly, brave is really fast, alright. but firefox on top!
 # btw discord is bloat. armcord >>
@@ -206,23 +214,27 @@ for_window [class="Thunar"] floating enable
 for_window [class="TorGuard"] floating enable
 
 # hide titlebar if not tabbed
-for_window [class="^.*"] border pixel 0
+# for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 
-# transparency & blur with
+# transparency & blur with picom
 exec_always picom -f --backend glx
 
 # Color shemes for windows 
-set $bgcolor	#523d6499
-set $in-bgcolor #3636364D
-set $text	#ffffff
-set $u-bgcolor	#ff0000
-set $indicator	#a8a3c1
-set $in-text	#969696
-set $focused-ws	#523d6480
+set $bgcolor	#1e1e2e99
+set $in-bgcolor #0000004d
+set $text	    #11111b
+set $u-bgcolor	#fab387
+set $indicator	#cba6f7
+set $in-text	#cdd6f4
+set $focused-ws	#f5c2e7
 set $bar-color	#0000004d
+# set $bar-color	#000000
 
-#			border		background	text		indicator (a line which shows where the next window will be placed)	
-client.focused		$bgcolor	$bgcolor	$text		$indicator
+set $bordercolor-app #f5c2e7
+
+		# border		background	text		indicator (a line which shows where the next window will be placed)	
+client.focused		$bordercolor-app	$bordercolor-app	$bordercolor-app		$bordercolor-app
 client.unfocused	$in-bgcolor	$in-bgcolor	$in-text	$in-bgcolor
 client.focused_inactive	$in-bgcolor	$in-bgcolor	$in-text	$in-bgcolor
 client.urgent		$u-bgcolor	$u-bgcolor	$text		$u-bgcolor	
