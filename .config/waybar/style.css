@@ -1,0 +1,246 @@
+@keyframes blink-critical {
+    to {
+        /*color: @white;*/
+        background-color: @critical;
+    }
+}
+
+@define-color black     #11111b;
+@define-color red       #f38ba8;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color blue      #89b4fa;
+@define-color purple    #cba6f7; /* idk if mauve is the right color hehe */
+@define-color aqua      #a6e3a1;
+@define-color pink      #f5c2e7;
+@define-color gray      #1e1e2e;
+@define-color white     #cdd6f4;
+@define-color bg2       #181825;
+
+@define-color warning   @bryellow;
+@define-color critical  @red;
+@define-color mode      @black;
+@define-color unfocused @bg2;
+@define-color focused   @pink;
+@define-color inactive  @purple;
+@define-color sound     @purple;
+@define-color network   @pink;
+@define-color memory    @aqua;
+@define-color cpu       @red;
+@define-color layout    @yellow;
+@define-color battery   @yellow;
+@define-color tray      @bg2;
+@define-color time      @white;
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+}
+
+/* The whole bar */
+#waybar {
+    background: rgba(17, 17, 27, 0.8784311725); /* #11111be0 */
+    color: @white;
+    font-size: 11pt;
+    font-family: "fira code nerd font";
+}
+
+/* Each module */
+#pulseaudio,
+#battery,
+#clock,
+#cpu,
+#memory,
+#mode,
+#network,
+#temperature,
+#tray,
+#backlight,
+#idle_inhibitor,
+#disk,
+#user,
+#mpris {
+    padding-left: 8pt;
+    padding-right: 8pt;
+}
+
+/* Each critical module */
+#mode,
+#memory.critical,
+/* #cpu.critical, */
+#battery.critical.discharging {
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-name: blink-critical;
+    animation-duration: 1s;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning.discharging {
+    color: @warning;
+}
+
+/* dont flash; thats gonna exacerbate the problem */
+#cpu.critical {
+    color: @critical;
+}
+
+/* Current sway mode (resize etc) */
+#mode {
+    color: @white;
+    background: @mode;
+}
+
+/* Workspaces stuff */
+#workspaces button {
+    /*font-weight: bold;*/
+    padding-left: 2pt;
+    padding-right: 2pt;
+    color: @white;
+    background: @unfocused;
+}
+
+/* Inactive (on unfocused output) */
+#workspaces button.visible {
+    color: @white;
+    background: @inactive;
+}
+
+/* Active (on focused output) */
+#workspaces button.focused {
+    color: @black;
+    background: @focused;
+}
+
+/* Contains an urgent window */
+#workspaces button.urgent {
+    color: @black;
+    background: @warning;
+}
+
+/* Style when cursor is on the button */
+#workspaces button:hover {
+    background: @black;
+    color: @white;
+}
+
+#window {
+    margin-right: 35pt;
+    margin-left: 35pt;
+}
+
+#pulseaudio {
+    background: @sound;
+    color: @black;
+}
+
+#network {
+    background: @network;
+    color: @black;
+}
+
+#memory {
+    background: @memory;
+    color: @black;
+}
+
+#cpu {
+    background: @cpu;
+    color: @black;
+}
+
+#battery {
+    background: @battery;
+    color: @black;
+}
+
+#tray {
+    background: @date;
+}
+
+#clock.time {
+    background: @time;
+    color: @black;
+}
+
+#custom-arrow1 {
+    font-size: 11pt;
+    color: @tray;
+    background: @time;
+    margin-right: -1px;
+}
+
+#custom-arrow2 {
+    font-size: 11pt;
+    color: @date;
+    background: @layout;
+}
+
+#custom-arrow3 {
+    font-size: 11pt;
+    color: @time;
+    background: @battery;
+    margin-right: -1px;
+}
+
+#custom-arrow4 {
+    font-size: 11pt;
+    color: @battery;
+    background: @temp;
+    margin-right: -1px;
+}
+
+#custom-arrow5 {
+    font-size: 11pt;
+    color: @battery;
+    background: @cpu;
+    margin-right: -1px;
+}
+
+#custom-arrow6 {
+    font-size: 11pt;
+    color: @cpu;
+    background: @memory;
+    margin-right: -1px;
+}
+
+#custom-arrow7 {
+    font-size: 11pt;
+    color: @memory;
+    background: @network;
+    margin-right: -1px;
+}
+
+#custom-arrow8 {
+    font-size: 11pt;
+    color: @network;
+    background: @sound;
+    margin-right: -1px;
+}
+
+#custom-arrow9 {
+    font-size: 11pt;
+    color: @sound;
+    background: transparent;
+    margin-right: -1px;
+}
+
+#custom-arrow10 {
+    font-size: 11pt;
+    color: @unfocused;
+    background: transparent;
+    margin-right: -1px;
+}
+

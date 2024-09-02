@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>execute command `kitty .`</name>
+	<submenu></submenu>
+	<unique-id>1709262870083224-1</unique-id>
+	<command>kitty .</command>
+	<description>meow</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+</actions>
