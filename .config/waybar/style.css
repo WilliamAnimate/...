@@ -73,8 +73,6 @@
 
 /* Each critical module */
 #mode,
-#memory.critical,
-/* #cpu.critical, */
 #battery.critical.discharging {
     animation-timing-function: cubic-bezier(1, 0, 0, 1);
     animation-iteration-count: infinite;
@@ -90,11 +88,6 @@
 #temperature.warning,
 #battery.warning.discharging {
     color: @warning;
-}
-
-/* dont flash; thats gonna exacerbate the problem */
-#cpu.critical {
-    color: @critical;
 }
 
 /* Current sway mode (resize etc) */
