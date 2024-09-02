@@ -243,7 +243,7 @@
     font-size: 12pt;
     color: @sound;
     background: transparent;
-    margin-right: -1px;
+    /* margin-right: -1px; */
     margin-bottom: -1px;
 }
 
