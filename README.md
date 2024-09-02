@@ -13,7 +13,7 @@ i mean its pretty easy to apply. you need to first...
 here's a bash oneliner:
 
 ```sh
-paru -S stow mako fish btop kitty neovim ranger rofi thunar thunar-archive-plugin sway swaybg swaylock-effects waybar && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow .
+paru -S stow mako fish btop kitty neovim ranger rofi thunar thunar-archive-plugin sway swaybg swaylock-effects waybar autotiling-rs && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow .
 ```
 
 </details>
@@ -27,7 +27,7 @@ pacman -S stow
 ## then find out the other deps it has.
 
 ```sh
-paru -S mako fish btop kitty neovim ranger rofi thunar thunar-archive-plugin sway swaybg swaylock-effects waybar 
+paru -S mako fish btop kitty neovim ranger rofi thunar thunar-archive-plugin sway swaybg swaylock-effects waybar autotiling-rs
 ```
 
 ## or if you like yay...
