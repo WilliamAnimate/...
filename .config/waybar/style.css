@@ -46,7 +46,7 @@
 
 /* The whole bar */
 #waybar {
-    background: rgba(17, 17, 27, 0.8784311725); /* #11111be0 */
+    background: rgba(30, 30, 46, 0.8784311725); /* #1e1e2ee0 */
     color: @white;
     font-size: 11pt;
     font-family: "fira code nerd font";
@@ -167,7 +167,7 @@
 }
 
 #tray {
-    background: @date;
+    background: @tray;
 }
 
 #clock.time {
@@ -176,71 +176,82 @@
 }
 
 #custom-arrow1 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: @tray;
     background: @time;
     margin-right: -1px;
+    margin-bottom: -1px;
 }
 
 #custom-arrow2 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: @date;
     background: @layout;
+    margin-right: -1px;
+    margin-bottom: -1px;
 }
 
 #custom-arrow3 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: @time;
     background: @battery;
     margin-right: -1px;
+    margin-bottom: -1px;
 }
 
 #custom-arrow4 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: @battery;
     background: @temp;
     margin-right: -1px;
+    margin-bottom: -1px;
 }
 
 #custom-arrow5 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: @battery;
     background: @cpu;
     margin-right: -1px;
+    margin-bottom: -1px;
 }
 
 #custom-arrow6 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: @cpu;
     background: @memory;
     margin-right: -1px;
+    margin-bottom: -1px;
 }
 
 #custom-arrow7 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: @memory;
     background: @network;
     margin-right: -1px;
+    margin-bottom: -1px;
 }
 
 #custom-arrow8 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: @network;
     background: @sound;
     margin-right: -1px;
+    margin-bottom: -1px;
 }
 
 #custom-arrow9 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: @sound;
     background: transparent;
     margin-right: -1px;
+    margin-bottom: -1px;
 }
 
 #custom-arrow10 {
-    font-size: 11pt;
+    font-size: 12pt;
     color: @unfocused;
     background: transparent;
     margin-right: -1px;
+    margin-bottom: -1px;
 }
 
