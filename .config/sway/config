@@ -155,9 +155,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-mode "$power" {
-  bindsym s exec /home/william/.config/scripts/lock, mode "default", exec systemctl suspend
-  bindsym l exec /home/william/.config/scripts/lock, mode "default"
+# or... make a power menu in waybar properly?
+mode "Power: [s]uspend, [meta]+[h]alt, [meta]+[r]eboot" {
+  bindsym s exec ~/.config/sway/lock.sh, mode "default", exec systemctl suspend
+  bindsym l exec ~/.config/sway/lock.sh, mode "default"
   bindsym $mod+h exec shutdown now
   bindsym $mod+r exec reboot
 
@@ -166,8 +167,7 @@ mode "$power" {
   bindsym $mod+p mode "default"
 }
 
-set $power Power option: [s]leep, [meta]+[h]alt, [meta]+[r]eboot
-bindsym $mod+p mode "$power"
+bindsym $mod+p mode "Power: [s]uspend, [meta]+[h]alt, [meta]+[r]eboot"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
