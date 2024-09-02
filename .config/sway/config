@@ -56,9 +56,9 @@ for_window [app_id="TorGuard"] floating enable
 for_window [app_id="^.*"] border pixel 3
 # wtf wayland is xorg?
 input "2:14:ETPS/2_Elantech_Touchpad" {
-   tap enabled
-   natural_scroll enabled
-   middle_emulation enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
 }
 
 # nice (no not the priority thing)
@@ -139,50 +139,39 @@ bindsym $mod+Shift+e exec "swaynag -t warning -m 'Log off?' -B 'Send me back to 
 
 # resize window (you can also use the mouse for that, but thats cringe)
 mode "resize" {
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
-  bindsym H resize shrink width 10 px or 10 ppt
-  bindsym J resize grow height 10 px or 10 ppt
-  bindsym K resize shrink height 10 px or 10 ppt
-  bindsym L resize grow width 10 px or 10 ppt
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym H resize shrink width 10 px or 10 ppt
+    bindsym J resize grow height 10 px or 10 ppt
+    bindsym K resize shrink height 10 px or 10 ppt
+    bindsym L resize grow width 10 px or 10 ppt
 
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-  bindsym $mod+r mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 # or... make a power menu in waybar properly?
 mode "Power: [s]uspend, [meta]+[h]alt, [meta]+[r]eboot" {
-  bindsym s exec ~/.config/sway/lock.sh, mode "default", exec systemctl suspend
-  bindsym l exec ~/.config/sway/lock.sh, mode "default"
-  bindsym $mod+h exec shutdown now
-  bindsym $mod+r exec reboot
+    bindsym s exec ~/.config/sway/lock.sh, mode "default", exec systemctl suspend
+    bindsym l exec ~/.config/sway/lock.sh, mode "default"
+    bindsym $mod+h exec shutdown now
+    bindsym $mod+r exec reboot
 
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
-  bindsym $mod+p mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym $mod+p mode "default"
 }
 
 bindsym $mod+p mode "Power: [s]uspend, [meta]+[h]alt, [meta]+[r]eboot"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-  position top
-  # status_command i3status-rs /home/william/.config/i3_old/i3status-rs.toml
-  # status_command i3blocks -c /home/william/.config/i3blocks/i3blocks.conf
-  #status_command i3status
-	# swaybar_command swaybar --transparency
     # this shit bloated as hell what the fuck
     swaybar_command waybar
-    # i3bar_command i3bar
-	# tray_output none
-	# font pango: Fira Code Nerd Font 10
-	font pango: Fira Code 10
 }
 
 # Color shemes for windows 
