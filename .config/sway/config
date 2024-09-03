@@ -44,7 +44,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 for_window [app_id="firefox"] move to workspace $ws2
 for_window [app_id="Brave-browser"] move to workspace $ws2
 for_window [app_id="cachy-browser"] move to workspace $ws2
-for_window [app_id="steam"] move to workspace $ws5
+for_window [class="steam"] move to workspace $ws5
 for_window [app_id="TorGuard"] move to workspace $ws5
 for_window [app_id="osu!"] move to workspace $ws6
 for_window [app_id="ArmCord"] move to workspace $ws4
