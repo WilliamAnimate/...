@@ -10,6 +10,7 @@ VERIFYING='#f5c2e7E6'
 WHAT='#cdd6f4'
 
 swaylock \
+    --screenshots \
     --clock \
     --indicator \
     --indicator-radius 100 \
@@ -28,4 +29,5 @@ swaylock \
     --inside-wrong-color $WRONG \
     --text-wrong-color $WHAT \
     --ring-wrong-color $WRONG \
+    --grace 2 \
     --fade-in 0.1 \
