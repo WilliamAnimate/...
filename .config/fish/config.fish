@@ -47,6 +47,9 @@ alias l.="eza -a | grep -e '^\.'"                                   # show only 
 # why the fuck less so cringe??? show colors
 # this doesn't work half the time though
 alias less='less -R'
+# oh i see why: literally every utility doesnt find color support from pipes
+# why???
+alias xxd='xxd -R always'
 
 # Common use
 alias wget='wget -c '
