@@ -42,6 +42,7 @@ end)
 require'lspconfig'.rust_analyzer.setup{}
 -- clang (c++)
 require'lspconfig'.clangd.setup{}
+require'lspconfig'.asm_lsp.setup{}
 
 require("base46").toggle_transparency()
 -- vim.opt.listchars = { trail = "·" }
