@@ -29,5 +29,5 @@ swaylock \
     --inside-wrong-color $WRONG \
     --text-wrong-color $WHAT \
     --ring-wrong-color $WRONG \
-    --grace 2 \
+    --grace 1 \
     --fade-in 0.1 \
