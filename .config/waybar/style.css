@@ -17,7 +17,7 @@
 @define-color white     #cdd6f4;
 @define-color bg2       #181825;
 
-@define-color warning   @bryellow;
+@define-color warning   @yellow;
 @define-color critical  @red;
 @define-color mode      @black;
 @define-color unfocused @bg2;
@@ -82,13 +82,12 @@
 }
 
 /* Each warning */
-#network.disconnected,
-#memory.warning,
-#cpu.warning,
-#temperature.warning,
-#battery.warning.discharging {
-    color: @warning;
-}
+/* #network.disconnected, */
+/* #memory.warning, */
+/* #cpu.warning, */
+/* #battery.warning.discharging { */
+/*     color: @warning; */
+/* } */
 
 /* Current sway mode (resize etc) */
 #mode {
