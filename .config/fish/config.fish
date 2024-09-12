@@ -1,5 +1,3 @@
-source $HOME/.config/fish/yeet.fish # sway autostart when logging into getty@tty1 (assuming yuor'e on systemd. idk how others work hehe)
-
 # https://fishshell.com/docs/current/interactive.html#vi-mode-commands
 # my fingers speak vi
 function fish_user_key_bindings
@@ -20,6 +18,11 @@ set -g fish_prompt_pwd_dir_length 0
 set -g theme_nerd_fonts yes
 set -g theme_display_date no
 set -g theme_color_scheme catppuccin-mocha
+
+if test (tty) = "/dev/tty2" -o (tty) = "/dev/tty2" -o (tty) = "/dev/tty3" -o (tty) = "/dev/tty4" -o (tty) = "/dev/tty5" -o (tty) = "/dev/tty6"
+    set -g theme_powerline_fonts no
+    set -g theme_nerd_fonts no
+end
 
 export EDITOR=nvim
 
