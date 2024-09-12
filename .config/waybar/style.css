@@ -119,7 +119,6 @@
 /* Contains an urgent window */
 #workspaces button.urgent {
     color: @red;
-    background: @warning;
 }
 
 /* Style when cursor is on the button */
