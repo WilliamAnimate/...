@@ -156,7 +156,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # or... make a power menu in waybar properly?
-mode "Power: [s]uspend, [meta]+[h]alt, [meta]+[r]eboot" {
+mode "power" {
     bindsym s exec ~/.config/sway/lock.sh, mode "default", exec systemctl suspend
     bindsym l exec ~/.config/sway/lock.sh, mode "default"
     bindsym $mod+h exec shutdown now
@@ -167,7 +167,7 @@ mode "Power: [s]uspend, [meta]+[h]alt, [meta]+[r]eboot" {
     bindsym $mod+p mode "default"
 }
 
-bindsym $mod+p mode "Power: [s]uspend, [meta]+[h]alt, [meta]+[r]eboot"
+bindsym $mod+p mode "power"
 
 bar {
     # this shit bloated as hell what the fuck
