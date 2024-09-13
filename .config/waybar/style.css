@@ -46,7 +46,7 @@
 
 /* The whole bar */
 #waybar {
-    background: rgba(30, 30, 46, 0.8784311725); /* #1e1e2ee0 */
+    background: rgba(30, 30, 46, 100); /* 1e1e2e */
     color: @white;
     font-size: 11pt;
     font-family: "fira code nerd font";
