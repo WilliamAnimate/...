@@ -16,6 +16,7 @@
 @define-color gray      #1e1e2e;
 @define-color white     #cdd6f4;
 @define-color bg2       #181825;
+@define-color surface0  #313244;
 
 @define-color warning   @yellow;
 @define-color critical  @red;
@@ -101,19 +102,18 @@
     padding-left: 2pt;
     padding-right: 2pt;
     color: @white;
-    background: @unfocused;
+    background: @surface0;
 }
 
 /* Inactive (on unfocused output) */
 #workspaces button.visible {
-    color: @white;
-    background: @inactive;
+    color: @inactive;
 }
 
 /* Active (on focused output) */
 #workspaces button.focused {
-    color: @black;
-    background: @focused;
+    font-weight: bold;
+    color: @focused;
 }
 
 /* Contains an urgent window */
@@ -240,7 +240,7 @@
 
 #custom-arrow10 {
     font-size: 12pt;
-    color: @unfocused;
+    color: @surface0;
     background: transparent;
     margin-right: -1px;
     margin-bottom: -1px;
