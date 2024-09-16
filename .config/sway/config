@@ -49,7 +49,7 @@ for_window [app_id="TorGuard"] move to workspace $ws5
 for_window [app_id="osu!"] move to workspace $ws6
 for_window [app_id="armcord"] move to workspace $ws4
 
-for_window [app_id="Thunar"] floating enable
+for_window [app_id="thunar"] floating enable
 for_window [app_id="TorGuard"] floating enable
 
 # hide titlebar if not tabbed
