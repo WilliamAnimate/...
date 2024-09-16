@@ -123,8 +123,7 @@
 
 /* Style when cursor is on the button */
 #workspaces button:hover {
-    background: @black;
-    color: @white;
+    color: @pink;
 }
 
 #window {
