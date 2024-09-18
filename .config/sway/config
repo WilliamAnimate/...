@@ -1,7 +1,7 @@
 # super/meta/win key
 set $mod Mod4
 
-exec swaybg -i ~/Polarnight_c.jpg
+output * bg ~/Polarnight_c.jpg fill
 # exec_always swaybg -i ~/glorious\ leo.jpg
 exec autotiling-rs
 
