@@ -51,6 +51,7 @@ for_window [app_id="armcord"] move to workspace $ws4
 
 for_window [app_id="thunar"] floating enable
 for_window [app_id="TorGuard"] floating enable
+for_window [app_id="kitty"] blur enable
 
 # hide titlebar if not tabbed
 for_window [app_id="^.*"] border pixel 3
