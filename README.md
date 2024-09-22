@@ -30,19 +30,19 @@ pacman -S stow
 paru -S mako fish btop kitty neovim yazi rofi thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq
 ```
 
-## or if you like yay...
+### or if you like yay...
 
 ```sh
 rm -rf ~
 ```
 
-## or if you like [nyaur](https://github.com/williamAnimate/nyaur)...
+### or if you like [nyaur](https://github.com/williamAnimate/nyaur)...
 
 ```sh
 echo "there is something wrong with me"
 ```
 
-## or if you like pacman
+### or if you like pacman
 
 ```sh
 # TODO: download aur pkgs from pacman somehow.
