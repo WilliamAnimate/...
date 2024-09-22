@@ -1,6 +1,10 @@
 local M = {}
 
 M.ui = {
+  tabufline = {
+    order = { "treeOffset", "buffers", "tabs" },
+  },
+
   theme = "catppuccin",
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal
