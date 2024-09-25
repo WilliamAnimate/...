@@ -1,4 +1,4 @@
 [manager]
-ratio = [ 1, 2, 4 ]
+ratio = [ 1, 2, 3 ]
 show_hidden = true
 sort_by = "natural"
