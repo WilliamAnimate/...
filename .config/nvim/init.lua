@@ -65,4 +65,5 @@ vim.api.nvim_exec("set ttyfast", false)
 vim.api.nvim_exec("set lazyredraw", false)
 vim.api.nvim_exec("noswap", false)
 vim.api.nvim_exec("set noswapfile", false)
+vim.api.nvim_exec("set relativenumber", false)
 
