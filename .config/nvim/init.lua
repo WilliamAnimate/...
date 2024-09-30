@@ -53,17 +53,17 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
-vim.api.nvim_win_set_option(0, 'colorcolumn', '110')
+vim.wo.colorcolumn = "110"
 vim.cmd('highlight ColorColumn ctermbg=0 guibg=#0c0c0c')
 vim.opt.showtabline = 0
 vim.g.toggle_theme_icon = nil
 
-vim.api.nvim_exec("aunmenu PopUp.How-to\\ disable\\ mouse", false)
-vim.api.nvim_exec("aunmenu PopUp.-1-", false)
--- vim.api.nvim_exec("set mouse=", false) -- masochist mode: disables the mouse
-vim.api.nvim_exec("set ttyfast", false)
-vim.api.nvim_exec("set lazyredraw", false)
-vim.api.nvim_exec("noswap", false)
-vim.api.nvim_exec("set noswapfile", false)
-vim.api.nvim_exec("set relativenumber", false)
+vim.api.nvim_exec2("aunmenu PopUp.How-to\\ disable\\ mouse", { output = false })
+vim.api.nvim_exec2("aunmenu PopUp.-1-", { output = false })
+-- vim.api.nvim_exec2("set mouse=", { output = false} ) -- masochist mode: disables the mouse
+vim.api.nvim_exec2("set ttyfast", { output = false} )
+vim.api.nvim_exec2("set lazyredraw", { output = false })
+vim.api.nvim_exec2("noswap", { output = false })
+vim.api.nvim_exec2("set noswapfile", { output = false })
+vim.api.nvim_exec2("set relativenumber", { output = false })
 
