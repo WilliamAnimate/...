@@ -33,6 +33,7 @@ alias vi='nvim'
 alias mem='~/.config/scripts/memory'
 alias vol='~/.config/scripts/volume'
 alias bright='~/.config/scripts/brightness'
+alias swaps="free --mega -h; echo "\n"; zramctl; echo "\n"; swapon --show"
 
 # source: https://github.com/CachyOS/cachyos-fish-config/
 # Format man pages
