@@ -73,8 +73,9 @@
 }
 
 /* Each critical module */
-#mode,
-#battery.critical.discharging {
+#mode
+/* #battery.critical.discharging { */
+{
     animation-timing-function: cubic-bezier(1, 0, 0, 1);
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -102,7 +103,7 @@
     padding-left: 2pt;
     padding-right: 2pt;
     color: @white;
-    background: @surface0;
+    background: @black;
 }
 
 /* Inactive (on unfocused output) */
@@ -131,117 +132,24 @@
     margin-left: 35pt;
 }
 
-#pulseaudio {
-    background: @sound;
-    color: @black;
-}
-
-#network {
-    background: @network;
-    color: @black;
-}
-
-#memory {
-    background: @memory;
-    color: @black;
-}
-
-#cpu {
-    background: @cpu;
-    color: @black;
-}
-
-#battery {
-    background: @battery;
-    color: @black;
-}
-
-#tray {
-    background: @tray;
-}
-
+#pulseaudio,
+#network,
+#memory,
+#cpu,
+#battery,
+#tray,
 #clock.time {
-    background: @time;
+    color: @white;
+    background: @black;
+}
+
+#custom-ws-arrow-dark,
+#custom-arrow-dark {
     color: @black;
 }
 
-#custom-arrow1 {
-    font-size: 12pt;
-    color: @tray;
-    background: @time;
-    margin-right: -1px;
-    margin-bottom: -1px;
-}
-
-#custom-arrow2 {
-    font-size: 12pt;
-    color: @date;
-    background: @layout;
-    margin-right: -1px;
-    margin-bottom: -1px;
-}
-
-#custom-arrow3 {
-    font-size: 12pt;
-    color: @time;
-    background: @battery;
-    margin-right: -1px;
-    margin-bottom: -1px;
-}
-
-#custom-arrow4 {
-    font-size: 12pt;
-    color: @battery;
-    background: @temp;
-    margin-right: -1px;
-    margin-bottom: -1px;
-}
-
-#custom-arrow5 {
-    font-size: 12pt;
-    color: @battery;
-    background: @cpu;
-    margin-right: -1px;
-    margin-bottom: -1px;
-}
-
-#custom-arrow6 {
-    font-size: 12pt;
-    color: @cpu;
-    background: @memory;
-    margin-right: -1px;
-    margin-bottom: -1px;
-}
-
-#custom-arrow7 {
-    font-size: 12pt;
-    color: @memory;
-    background: @network;
-    margin-right: -1px;
-    margin-bottom: -1px;
-}
-
-#custom-arrow8 {
-    font-size: 12pt;
-    color: @network;
-    background: @sound;
-    margin-right: -1px;
-    margin-bottom: -1px;
-}
-
-#custom-arrow9 {
-    font-size: 12pt;
-    color: @sound;
-    background: transparent;
-    /* margin-right: -1px; */
-    margin-bottom: -1px;
-}
-
-#custom-arrow10 {
-    font-size: 12pt;
-    color: @surface0;
-    background: transparent;
-    margin-right: -1px;
-    margin-bottom: -1px;
+#custom-arrow-light {
+    color: rgba(30, 30, 46, 100); /* 1e1e2e */
+    background: @black;
 }
 

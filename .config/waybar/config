@@ -5,25 +5,30 @@
 	"modules-left": [
 		"sway/mode",
 		"sway/workspaces",
-		"custom/arrow10",
+		"custom/ws-arrow-dark",
 		"sway/window"
 	],
 
 	"modules-right": [
-		"custom/arrow9",
+		"custom/arrow-dark",
 		"pulseaudio",
-		"custom/arrow8",
+		"custom/arrow-light",
+		"custom/arrow-dark",
 		"network",
-		"custom/arrow7",
+		"custom/arrow-light",
+		"custom/arrow-dark",
 		"memory",
-		"custom/arrow6",
+		"custom/arrow-light",
+		"custom/arrow-dark",
 		"cpu",
-		"custom/arrow5",
+		"custom/arrow-light",
+		"custom/arrow-dark",
 		"battery",
-		"custom/arrow3",
-		//"custom/arrow2",
+		"custom/arrow-light",
+		"custom/arrow-dark",
 		"clock#time",
-		"custom/arrow1",
+		"custom/arrow-light",
+		"custom/arrow-dark",
 		"tray",
 	],
 
@@ -135,54 +140,19 @@
 		//"spacing": 10
 	},
 
-	"custom/arrow1": {
-		"format": "",
-		"tooltip": false
-	},
+    "custom/arrow-dark": {
+        "format": "",
+        "tooltip": false
+    },
 
-	"custom/arrow2": {
-		"format": "",
-		"tooltip": false
-	},
+    "custom/arrow-light": {
+        "format": "",
+        "tooltip": false
+    },
 
-	"custom/arrow3": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow4": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow5": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow6": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow7": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow8": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow9": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow10": {
-		"format": "",
-		"tooltip": false
-	}
+    "custom/ws-arrow-dark": {
+        "format": "",
+        "tooltip": false
+    },
 }
 
