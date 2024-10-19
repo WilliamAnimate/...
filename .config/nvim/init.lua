@@ -67,3 +67,7 @@ vim.api.nvim_exec2("noswap", { output = false })
 vim.api.nvim_exec2("set noswapfile", { output = false })
 vim.api.nvim_exec2("set relativenumber", { output = false })
 
+vim.api.nvim_set_keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+

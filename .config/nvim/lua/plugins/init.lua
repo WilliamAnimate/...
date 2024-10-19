@@ -1,3 +1,3 @@
 return {
-    -- no plugins.
+    { "filipdutescu/renamer.nvim", opts = {} }
 }
