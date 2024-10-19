@@ -55,6 +55,13 @@ for_window [app_id="TorGuard"] floating enable
 for_window [app_id="kitty"] blur enable
 for_window [app_id="dev.zed.Zed"] blur enable
 
+# move focused to scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# show next scratchpad thing
+# idfk if its fifo queue its 10:25 im going insane
+bindsym $mod+minus scratchpad show
+
 # hide titlebar if not tabbed
 for_window [app_id="^.*"] border pixel 3
 # wtf wayland is xorg?

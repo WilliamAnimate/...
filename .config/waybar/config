@@ -6,8 +6,9 @@
 		"sway/mode",
 		"sway/workspaces",
 		"custom/ws-arrow-dark",
-		"sway/window"
-	],
+		"sway/window",
+        "sway/scratchpad"
+    ],
 
 	"modules-right": [
 		"custom/arrow-dark",
@@ -98,6 +99,14 @@
 		"format-alt": " {ipaddr}/{cidr}",
 		"tooltip": false
 	},
+
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
 
 	"sway/mode": {
 		"format": "{}",
