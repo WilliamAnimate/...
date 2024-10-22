@@ -83,3 +83,5 @@ alias dmesg="sudo /bin/dmesg -L=always"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
+export MANPAGER="page"
+
