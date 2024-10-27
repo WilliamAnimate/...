@@ -59,7 +59,7 @@
 
 	"clock#time": {
 		"interval": 10,
-		"format": "{:%H:%M}",
+		"format": "{:%I:%M %p}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode"          : "year",
@@ -82,13 +82,6 @@
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
         }
-	},
-
-	"clock#date": {
-		"interval": 20,
-		"format": "{:%e %b %Y}",
-		"tooltip": false
-		//"tooltip-format": "{:%e %B %Y}"
 	},
 
 	"cpu": {
