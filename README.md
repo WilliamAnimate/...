@@ -13,7 +13,7 @@ i mean its pretty easy to apply. you need to first...
 here's a bash oneliner:
 
 ```sh
-paru -S stow mako fish btop kitty neovim yazi rofi thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq && sudo chsh $(whoami) -s /bin/fish && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow .
+paru -S stow mako fish btop kitty neovim yazi rofi thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq && sudo chsh $(whoami) -s /bin/fish && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow . && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 ```
 
 </details>
@@ -66,11 +66,22 @@ git clone https://github.com/WilliamAnimate/....git --depth=1
 cd ...
 ```
 
-## et enfin, symlink em' all
+## symlink em' all
 
 ```sh
 stow .
 ```
+
+<!-- put this here so once you symlink omf should immedately show bobthefish theme -->
+
+## et enfin, install [oh my fish](https://github.com/oh-my-fish/oh-my-fish)
+
+```sh
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+```
+
+omf is the easiest way to get these dots working immedately (`omf` folder exists), but any other fish plugin/theming
+system that works with omf themes
 
 ## haha jk not finally. you need to then find the fira code nerd font
 
