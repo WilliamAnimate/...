@@ -37,6 +37,8 @@ vim.opt.hlsearch = true
 
 vim.opt.clipboard = "unnamedplus" -- please make this the default
 
+vim.opt.list = true
+
 ----
 -- Depedencies
 ----
