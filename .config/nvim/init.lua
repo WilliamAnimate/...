@@ -124,7 +124,6 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		lazy = true,
-		--[[ event = "VeryLazy", ]]
 		build = ":TSUpdate",
 		config = function ()
 			local configs = require("nvim-treesitter.configs")
@@ -284,13 +283,6 @@ require("lazy").setup({
         end
     },
 
-    --[[ {
-        'akinsho/toggleterm.nvim',
-        version = "*", 
-        opts = {
-            open_mapping = "<leader>h"
-        }
-    } ]]
     {
         "zbirenbaum/nvterm",
         version = "*",
@@ -303,17 +295,6 @@ require("lazy").setup({
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
-        -- whichkey eats shit when trying to start it this way
-        --[[keys = {
-            { " ", "<cmd>WhichKey<CR>" },
-            { "<c-w>", "<cmd>WhichKey<CR>" },
-            { '"', "<cmd>WhichKey<CR>" },
-            "'",
-            "`",
-            "c",
-            "v",
-            "g"
-        },]]
         cmd = "WhichKey",
         config = true,
     },
@@ -422,30 +403,17 @@ vim.keymap.set("n", "<", "<<")   -- ^^ (can still be done a visual selection bef
 vim.keymap.set("v", "<", "<gv") 
 vim.keymap.set("v", ">", ">gv") 
 
---[[ vim.keymap.set("n", "<leader>q", ":bdelete<CR>")
-vim.keymap.set("n", "<leader>Q", ":bdelete!<CR>") ]]
---[[ vim.keymap.set("n", "<leader>t", ":terminal<CR>") ]]
-
---[[ vim.keymap.set("n", "<leader>h", ":ToggleTerm<CR>") ]]
-
 vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':noh<CR>', { noremap = true })
 
 -- lazy plugin start
 
--- FIXME: you need to press twice in first run. maybe theres a method that lets you automagicaly call? idskjdsks;lsd;s;as;lsa;ljs;klsd;fsjkdflsakjdvld;sld;fls;dflsanklsdjsldcnlwddenfenfvnfd;fkv,l;sxl;sc;ldskl;ckdl;dfk,mvdl;d,l's.fd;lcmsl;dvcml;
---[[ vim.keymap.set("n", "<leader>/", function() require("Comment").setup() end, { desc = "fire comment plugin" }) ]]
 vim.keymap.set('n', '<leader>h', function()
     require("nvterm.terminal").toggle("horizontal")
 end, { desc = "toggle horizontal terminal" })
 
--- FUCK LUA
 vim.keymap.set('n', '<leader>/', function()
     vim.cmd('CommentToggle')
 end, { desc = 'toggle comment on current line' })
--- FUCK LUA: esc first (because gv doesnt update itself with what you last pressed for some fucking reason)
--- and THEN gv
--- and becuase nothing in life ever works in your favour, THEN need to type CommentToggle with <CR>
--- i dont fucking know why and i want to kill myself
 vim.keymap.set("v", "<leader>/", function()
     vim.cmd([[<ESC>gv:CommentToggle<CR>]])
 end, { desc = "idk" })
@@ -459,19 +427,7 @@ vim.keymap.set('n', '<S-TAB>', function()
 end, { desc = "prev tab" })
 vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", { desc = "close buffer" })
 
---[[vim.keymap.set("n", "<leader>", function()
-    require("which-key").show({ global = false })
-end, { desc = "fire whichkey.nvim" })]]
--- vim.api.nvim_set_keymap('n', '<leader>', ':lua require("which-key").setup(); require("which-key").show()<CR>', { noremap = true, silent = true })
-
 -- aldsd;lsdfjdkldsldkslkdlsdkd;;ds;ds;sdfjkdlsdlkkld;fkds;jjfsdlkjlsjlkd
---[[local augroup = vim.api.nvim_create_augroup("set-commentstring-ag", {})
-vim.api.nvim_create_autocmd({"BufEnter"}, {
-    group = augroup,
-    callback = function()
-        vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
-    end,
-})]]
 
 vim.api.nvim_create_autocmd({"BufFilePost"}, {
     group = augroup,
