@@ -36,10 +36,7 @@ alias vol='~/.config/scripts/volume'
 alias bright='~/.config/scripts/brightness'
 alias swaps="free --mega -h; echo "\n"; zramctl; echo "\n"; swapon --show"
 
-# source: https://github.com/CachyOS/cachyos-fish-config/
-# Format man pages
-set -x MANROFFOPT "-c"
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+alias synctime="sudo systemctl start systemd-timesyncd && sleep 1 && sudo systemctl stop systemd-timesyncd"
 
 ## Useful aliases
 # Replace ls with eza
