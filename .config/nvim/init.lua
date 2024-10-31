@@ -74,7 +74,7 @@ require("lazy").setup({
                     lualine_a = {'mode'},
                     lualine_b = {'branch', 'diff'},
                     lualine_c = {'filename', 'diagnostics'},
-                    lualine_x = {'filetype'},
+                    lualine_x = {"require'lsp-status'.status()", 'filetype'},
                     lualine_y = {'progress'},
                     lualine_z = {'location'},
                 },
@@ -317,6 +317,34 @@ require("lazy").setup({
         cmd = "WhichKey",
         config = true,
     },
+    {
+        'lewis6991/gitsigns.nvim',
+        event = { "BufRead", "BufNewFile" },
+        config = function()
+            require('gitsigns').setup()
+        end
+    },
+
+    {
+        'akinsho/bufferline.nvim',
+        version = "*",
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        event = { "BufRead", "BufNewFile" },
+        config = function()
+            require'bufferline'.setup {
+                options = {
+                    offsets = {
+                        {
+                            filetype = "NvimTree",
+                            text = "files",
+                            highlight = "Directory",
+                            separator = true
+                        }
+                    }
+                }
+            }
+        end
+    },
 }, lazy_config);
 
 require("catppuccin").setup({
@@ -422,6 +450,14 @@ vim.keymap.set("v", "<leader>/", function()
     vim.cmd([[<ESC>gv:CommentToggle<CR>]])
 end, { desc = "idk" })
 vim.api.nvim_set_keymap("v", "<leader>/", "<ESC>gv:CommentToggle<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<TAB>", function()
+    vim.cmd("BufferLineCycleNext")
+end, { desc = "next tab" })
+vim.keymap.set('n', '<S-TAB>', function()
+    vim.cmd("BufferLineCyclePrev")
+end, { desc = "prev tab" })
+vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", { desc = "close buffer" })
 
 --[[vim.keymap.set("n", "<leader>", function()
     require("which-key").show({ global = false })
