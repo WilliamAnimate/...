@@ -107,11 +107,10 @@ require("lazy").setup({
     {
         "terrortylor/nvim-comment",
         lazy = true,
-        event = "VeryLazy",
-        -- TODO: lazy load plEASE
-        --[[ keys = {
-            { "<leader>/", "<cmd><ESC>gv:CommentToggle<cr>" }
-        }, ]]
+        keys = {
+            { " /", "<cmd>CommentToggle<cr>", mode = "n" },
+            { " /", "<cmd><ESC>:CommentToggle<cr>", mode = "v" }
+        },
         config = function()
             require("nvim_comment").setup({
                 marker_padding = true,
@@ -410,14 +409,6 @@ vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':noh<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>h', function()
     require("nvterm.terminal").toggle("horizontal")
 end, { desc = "toggle horizontal terminal" })
-
-vim.keymap.set('n', '<leader>/', function()
-    vim.cmd('CommentToggle')
-end, { desc = 'toggle comment on current line' })
-vim.keymap.set("v", "<leader>/", function()
-    vim.cmd([[<ESC>gv:CommentToggle<CR>]])
-end, { desc = "idk" })
-vim.api.nvim_set_keymap("v", "<leader>/", "<ESC>gv:CommentToggle<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<TAB>", function()
     vim.cmd("BufferLineCycleNext")
