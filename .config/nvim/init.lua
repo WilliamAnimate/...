@@ -402,7 +402,9 @@ vim.keymap.set("n", "<", "<<")   -- ^^ (can still be done a visual selection bef
 vim.keymap.set("v", "<", "<gv") 
 vim.keymap.set("v", ">", ">gv") 
 
-vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':noh<CR>', { noremap = true })
+vim.keymap.set("n", "<Esc><Esc>", function()
+    vim.cmd(":noh")
+end, { desc = "clear highlights" })
 
 -- lazy plugin start
 
@@ -411,12 +413,18 @@ vim.keymap.set('n', '<leader>h', function()
 end, { desc = "toggle horizontal terminal" })
 
 vim.keymap.set("n", "<TAB>", function()
-    vim.cmd("BufferLineCycleNext")
+    pcall(function()
+        vim.cmd("BufferLineCycleNext")
+    end)
 end, { desc = "next tab" })
-vim.keymap.set('n', '<S-TAB>', function()
-    vim.cmd("BufferLineCyclePrev")
+vim.keymap.set("n", "<S-TAB>", function()
+    pcall(function()
+        vim.cmd("BufferLineCyclePrev")
+    end)
 end, { desc = "prev tab" })
-vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", { desc = "close buffer" })
+vim.keymap.set("n", "<leader>x", function()
+    vim.cmd(":bdelete!")
+end, { desc = "close buffer" })
 
 -- aldsd;lsdfjdkldsldkslkdlsdkd;;ds;ds;sdfjkdlsdlkkld;fkds;jjfsdlkjlsjlkd
 
