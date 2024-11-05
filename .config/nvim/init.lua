@@ -33,6 +33,8 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
+vim.opt.lazyredraw = true
+
 vim.opt.hlsearch = true
 
 vim.opt.clipboard = "unnamedplus" -- please make this the default
@@ -262,13 +264,12 @@ require("lazy").setup({
 
         cmd = "Telescope",
         keys = {
-            -- TODO: <leader>ff
-            { "<C-f>", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
+            { " ff", "<cmd>Telescope find_files<cr>", desc = "Telescope find files" },
             -- TODO: <leader>fw
-            { "<C-g>", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
-            { "<C-v>", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
-            { "<C-h>", "<cmd>Telescope help_tags<cr>", desc = "Telescope help tags" },
-            { "<C-s>", "<cmd>Telescope grep_string<cr>", desc = "Grep string under cursor" },
+            { " fw", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
+            -- { "<C-v>", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
+            -- { "<C-h>", "<cmd>Telescope help_tags<cr>", desc = "Telescope help tags" },
+            -- { "<C-s>", "<cmd>Telescope grep_string<cr>", desc = "Grep string under cursor" },
         },
 
         config = function()
@@ -328,6 +329,71 @@ require("lazy").setup({
             }
         end
     },
+
+    {
+        "nvimdev/dashboard-nvim",
+        event = "VimEnter",
+        config = function()
+            require"dashboard".setup {
+                hide = {
+                    statusline = false,
+                    tabline = false,
+                    winbar = false,
+                },
+                config = {
+                    header = {
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⢋⠹⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢈⣩⣴⣿⣿⣿⣿⣿⣿⣿⣿]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣄⠼⠃⠀⠀⠀⠀⢀⣀⣀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⢔⣛⣻⣭⣭⣭⣛⡛⠶⢿⣿⡻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣴⣾⣿⣿⣿⣿⣤⠶⠶⢮⣦⣀⠀⠉⠛⢽⡻⢿⣿⣿⣿⣿⣿⣿⣿]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢁⣴⣾⣿⣿⣿⣿⢿⣻⣭⣶⣶⣿⣿⣷⣾⣿⣿⣶⣄⡀⠙⢦⠹⣿⣿⣿⡿⣻⢽]],
+[[⠀⠀⠀⠀⡀⠀⡀⠘⠁⣠⣾⣿⣿⣿⡿⣿⣷⣿⢟⣯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣗⢶⣢⡀⠘⠛⠁⠜⢻⣾]],
+[[⠀⢠⡶⢋⣤⣼⠛⠀⢔⣿⣿⣿⣿⢟⣿⣿⡿⣵⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⢹⣿⡄⢀⡀⣀⣼⣿]],
+[[⠀⠘⢡⣿⣿⡟⠀⢈⣾⢿⣿⡿⢣⣿⡟⠋⢼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⣿⣧⠀⣻⣟⠩⠾]],
+[[⠀⠀⣼⡿⠿⠇⠀⣼⢏⣿⣿⠃⣼⣫⣾⡇⣾⣿⢟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⣿⠀⠸⠟⠀⠒]],
+[[⠀⠀⠈⠁⠀⡀⢸⡟⣸⡟⣟⡐⠛⠛⠿⢿⣿⡏⣼⣿⣿⣇⢿⣿⣿⣿⣿⣿⣿⡿⣿⣿⠇⣿⣿⠀⠀⢀⠀⠀]],
+[[⠀⠀⠀⠀⡰⠁⣿⡇⣿⡇⣿⣿⣟⡁⠀⠀⠘⢀⣿⣿⡟⣼⣮⢿⣿⣿⡿⣿⣿⢳⣿⡿⢰⣿⣿⠀⣸⣿⣿⣆]],
+[[⠀⠀⢠⡈⠀⠀⣿⠀⣿⡇⣿⣿⣿⣿⣶⣶⣾⣦⣿⣿⣷⣿⣏⢸⣿⡿⣿⣮⡋⣼⣿⠃⣾⣿⠉⠀⣿⣿⣿⣿]],
+[[⠀⠀⢸⣿⢰⠀⣿⠀⣿⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠟⢻⣿⡿⣰⡮⠁⣸⣿⣧⠀⣸⣿⣿⣿⣿]],
+[[⠀⠀⠀⢻⠘⠀⠸⠀⢿⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⠀⠀⢀⠙⢵⣋⠄⣴⣿⢫⣤⡠⣻⣿⢿⣿⣿]],
+[[⠀⠀⠀⠘⠀⠀⠀⠀⠘⠳⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣾⣧⡈⢏⣼⣿⡗⢺⢻⡇⢻⣷⣿⣿⠉]],
+[[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⠟⢉⣴⡿⡫⠊⠀⠀⠀⠀⠀⠛⠉⠋⠀]],
+[[⠀⠃⠀⠀⠀⠀⠀⠀⠱⠤⠴⠀⠙⢿⣿⣿⣿⣿⣿⣿⠛⣛⡫⠽⢧⣴⡿⠋⠊⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⠀⠐⠛⠳⠀⠀⠀⠀⠀⠶⠴⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠁⠀⣰⡿⠋⠀⣴⣶⣾⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⣀⡙⠛⠀⠀⢀⡄⠀⡐⠰⠧⠆⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠁⠀⢰⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+[[⣿⣿⣿⣶⣦⣀⣀⣘⠛⠿⠗⢀⣤⢤⠀⠀⠘⠛⠶⠆⠀⢀⡀⠀⠀⠀⠀⠉⠻⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
+-- 55x21
+                    },
+                    shortcut = {
+                        { desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
+                        {
+                            icon = " ",
+                            icon_hl = "@variable",
+                            desc = "Files",
+                            group = "Label",
+                            action = "Telescope find_files",
+                            key = "f",
+                        },
+                        {
+                            icon = "󰩈 ",
+                            desc = "help get me the fuck out of here",
+                            action = "q",
+                            key = "q",
+                        }
+                    },
+                },
+            }
+        end,
+        dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    },
+
+    {
+        "filipdutescu/renamer.nvim",
+        keys = {
+            { "<F2>", "<cmd>lua require ('renamer').rename()<cr>" }
+        },
+        opts = {}
+    }
 }, lazy_config);
 
 require("catppuccin").setup({
