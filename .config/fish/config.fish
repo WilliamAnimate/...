@@ -38,9 +38,11 @@ alias swaps="free --mega -h; echo "\n"; zramctl; echo "\n"; swapon --show"
 
 alias synctime="sudo systemctl start systemd-timesyncd && sleep 1 && sudo systemctl stop systemd-timesyncd"
 
+alias rec="wf-recorder -f"
+
 ## Useful aliases
 # Replace ls with eza
-alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
+alias ls='eza -al --color=always --group-directories-first --icons --git' # preferred listing
 alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
 alias ll='eza -l --color=always --group-directories-first --icons'  # long format
 alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
