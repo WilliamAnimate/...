@@ -13,21 +13,21 @@ i mean its pretty easy to apply. you need to first...
 here's a bash oneliner:
 
 ```sh
-paru -S stow mako fish btop kitty neovim yazi rofi thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq && sudo chsh $(whoami) -s /bin/fish && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow . && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+paru -S stow mako fish btop kitty neovim yazi rofi thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq --needed && sudo chsh $(whoami) -s /bin/fish && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow . && curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher && fisher install oh-my-fish/theme-bobthefish
 ```
 
 </details>
 
-## Install GNU stow
+## Install GNU stow and curl (for downloading fisher)
 
 ```sh
-pacman -S stow
+pacman -S stow curl --needed
 ```
 
 ## then find out the other deps it has.
 
 ```sh
-paru -S mako fish btop kitty neovim yazi rofi thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq
+paru -S mako fish btop kitty neovim yazi rofi thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq --needed
 ```
 
 ### or if you like yay...
@@ -74,14 +74,13 @@ stow .
 
 <!-- put this here so once you symlink omf should immedately show bobthefish theme -->
 
-## et enfin, install [oh my fish](https://github.com/oh-my-fish/oh-my-fish)
+## et enfin, install [fisher](https://github.com/jorgebucaran/fisher) and the bobthefish theme
 
 ```sh
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher && fisher install oh-my-fish/theme-bobthefish
 ```
 
-omf is the easiest way to get these dots working immedately (`omf` folder exists), but any other fish plugin/theming
-system that works with omf themes
+fisher is used over omf because omf is deprecated and unmaintained.
 
 ## haha jk not finally. you need to then find the fira code nerd font
 
@@ -96,7 +95,6 @@ more bloat! woooooooooooo
 ```sh
 sudo pacman -S tumbler
 ```
-
 
 ### delete my system
 
