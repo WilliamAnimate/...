@@ -72,6 +72,10 @@ cd ...
 stow .
 ```
 
+> [!NOTE]
+> This command may fail if you already have some of your own dots in `.config`. If that is the case, move the conflicting files out of the `.config` directory and try again.
+> stow **cannot** overwrite existing files as far as im aware, so you need not worry.
+
 <!-- put this here so once you symlink omf should immedately show bobthefish theme -->
 
 ## et enfin, install [fisher](https://github.com/jorgebucaran/fisher) and themes and plugins
