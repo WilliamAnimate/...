@@ -13,7 +13,7 @@ i mean its pretty easy to apply. you need to first...
 here's a bash oneliner:
 
 ```sh
-paru -S stow mako fish btop kitty neovim yazi rofi thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq --needed && sudo chsh $(whoami) -s /bin/fish && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow . && curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher && fisher install oh-my-fish/theme-bobthefish
+paru -S stow mako fish btop kitty neovim yazi rofi thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq --needed && sudo chsh $(whoami) -s /bin/fish && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow . && curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher && fisher install oh-my-fish/theme-bobthefish && fisher install franciscolourenco/done
 ```
 
 </details>
