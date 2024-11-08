@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # output * bg ~/Polarnight_c.jpg fill
-output * bg ~/chiptune_hell.jpg fill
+output * bg ~/chiptune_hell_recolored.png fill
 # exec_always swaybg -i ~/glorious\ leo.jpg
 exec autotiling-rs
 
