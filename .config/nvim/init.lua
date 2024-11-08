@@ -42,6 +42,8 @@ vim.opt.clipboard = "unnamedplus" -- please make this the default
 vim.opt.list = true
 vim.opt.ignorecase = true
 
+vim.g.rustfmt_autosave = 0
+
 ----
 -- Depedencies
 ----
