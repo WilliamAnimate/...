@@ -74,10 +74,10 @@ stow .
 
 <!-- put this here so once you symlink omf should immedately show bobthefish theme -->
 
-## et enfin, install [fisher](https://github.com/jorgebucaran/fisher) and the bobthefish theme
+## et enfin, install [fisher](https://github.com/jorgebucaran/fisher) and themes and plugins
 
 ```sh
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher && fisher install oh-my-fish/theme-bobthefish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher && fisher install oh-my-fish/theme-bobthefish && fisher install franciscolourenco/done
 ```
 
 fisher is used over omf because omf is deprecated and unmaintained.
