@@ -35,6 +35,7 @@ alias mem='~/.config/scripts/memory'
 alias vol='~/.config/scripts/volume'
 alias bright='~/.config/scripts/brightness'
 alias swaps="free --mega -h; echo "\n"; zramctl; echo "\n"; swapon --show"
+alias cd='z'
 
 alias synctime="sudo systemctl start systemd-timesyncd && sleep 1 && sudo systemctl stop systemd-timesyncd"
 
@@ -84,4 +85,6 @@ alias dmesg="sudo /bin/dmesg -L=always"
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 export MANPAGER="page"
+
+zoxide init fish | source
 
