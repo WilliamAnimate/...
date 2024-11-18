@@ -36,6 +36,7 @@ alias vol='~/.config/scripts/volume'
 alias bright='~/.config/scripts/brightness'
 alias swaps="free --mega -h; echo "\n"; zramctl; echo "\n"; swapon --show"
 alias cd='z'
+alias y='yazi'
 
 alias synctime="sudo systemctl start systemd-timesyncd && sleep 1 && sudo systemctl stop systemd-timesyncd"
 
