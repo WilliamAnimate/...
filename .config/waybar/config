@@ -107,6 +107,7 @@
 
 	"network": {
 		"interval": 5,
+        "interface": "wlan0",
 		"format-wifi": "  ({signalStrength}%)",
 		"format-ethernet": " {ifname}",
 		"format-disconnected": "No connection",
