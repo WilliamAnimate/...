@@ -4,6 +4,9 @@ My dotfiles for Artix OpenRC/Wayland/SwayFX/Kitty/Fish/Fisher/nvim/Yazi/GNU/Linu
 
 (SystemD users accepted[^1] too- but requires slight modifications)
 
+![without rofi](./howitlooks/20241124.png)
+![with rofi](./howitlooks/20241124-rofi.png)
+
 [^1]: Not really. I don't accept you guys[^2]. SystemD sucks and you should never use it, but init freedom is about using whatever init you want, including SystemD. If you are content with systemd (ew), then keep doing your thing.
 [^2]: That's a joke. I'm just not a fan of SystemD.
 
