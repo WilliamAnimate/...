@@ -15,7 +15,7 @@ vim.opt.autowrite = true
 vim.opt.swapfile = false
 
 vim.opt.wrap = true
-vim.opt.scrolloff = 1
+vim.opt.scrolloff = 2
 vim.opt.sidescrolloff = 30
 
 vim.opt.smartcase = true
@@ -108,7 +108,34 @@ require("lazy").setup({
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		priority = 1000
+        lazy = false,
+		priority = 1000,
+        config = function()
+            require("catppuccin").setup({
+                flavour = "mocha", -- latte, frappe, macchiato, mocha
+                background = { -- :h background
+                    light = "latte",
+                    dark = "mocha",
+                },
+                transparent_background = true, -- disables setting the background color.
+                show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
+                styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+                    comments = {}, -- Change the style of comments
+                    conditionals = {},
+                },
+                integrations = {
+                    nvimtree = true,
+                    treesitter = true,
+                    bufferline = true,
+                    telescope = {
+                        enabled = true,
+                        -- style = "nvchad"
+                    },
+                    which_key = true,
+                },
+                -- TODO: integrations https://github.com/catppuccin/nvim#integrations
+            })
+        end
 	},
 
     {
@@ -160,7 +187,8 @@ require("lazy").setup({
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function ()
-			local lsps = { "clangd", "gopls", "rust_analyzer" }
+			-- local lsps = { "clangd", "gopls", "rust_analyzer" }
+			local lsps = { "clangd", "gopls" }
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local root = lspconfig.util.root_pattern(".git", "compile_flags.txt", "go.mod", "Gopkg.lock", ".")
@@ -171,6 +199,22 @@ require("lazy").setup({
 					capabilities = capabilities,
 				}
 			end
+            -- disable annoying as fuck disabled code lint. i already fucking know that no ide autocomplete cause not if cfg! and shit
+            -- tradeoff: it doesn't color it.
+            lspconfig.rust_analyzer.setup({
+                cmd = {"rust-analyzer"},
+                capabilities = capabilities,
+                settings = {
+                    ["rust-analyzer"] = {
+                        cargo = {
+                            allFeatures = true,
+                        },
+                        diagnostics = {
+                            disabled = {"inactive-code"}
+                        }
+                    }
+                }
+            })
 		end,
 	},
 
@@ -314,9 +358,11 @@ require("lazy").setup({
     {
         'akinsho/bufferline.nvim',
         version = "*",
+        after = "catppuccin",
         dependencies = 'nvim-tree/nvim-web-devicons',
         event = { "BufRead", "BufNewFile" },
         config = function()
+            local mocha = require("catppuccin.palettes").get_palette "mocha"
             require'bufferline'.setup {
                 options = {
                     offsets = {
@@ -325,8 +371,31 @@ require("lazy").setup({
                             text = "files",
                             highlight = "Directory",
                             separator = true
-                        }
-                    }
+                        },
+                    },
+
+                    -- indicator = {
+                    --     {
+                    --         icon = ' ',
+                    --         style = 'icon'
+                    --     }
+                    -- },
+                    -- separator_style = {'', ' '},
+                    -- separator_style = "slope",
+                    diagnostics = "nvim_lsp",
+                    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+                        local icon = level:match("error") and " " or " "
+                        return " " .. icon .. count
+                    end,
+                    -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
+                    -- TODO: shit breaks when catppuccin transparent_background disabled
+                    -- highlights = require("catppuccin.groups.integrations.bufferline").get {
+                    --     custom = {
+                    --         separator = { fg = mocha.crust },
+                    --         separator_visible = { fg = mocha.crust },
+                    --         separator_selected = { fg = mocha.crust },
+                    --     },
+                    -- },
                 }
             }
         end
@@ -334,7 +403,7 @@ require("lazy").setup({
 
     {
         "nvimdev/dashboard-nvim",
-        event = "VimEnter",
+        -- event = "VimEnter",
         config = function()
             require"dashboard".setup {
                 hide = {
@@ -397,30 +466,6 @@ require("lazy").setup({
         opts = {}
     }
 }, lazy_config);
-
-require("catppuccin").setup({
-    flavour = "mocha", -- latte, frappe, macchiato, mocha
-    background = { -- :h background
-        light = "latte",
-        dark = "mocha",
-    },
-    transparent_background = true, -- disables setting the background color.
-    show_end_of_buffer = true, -- shows the '~' characters after the end of buffers
-    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-        comments = {}, -- Change the style of comments
-        conditionals = {},
-    },
-    integrations = {
-        nvimtree = true,
-        treesitter = true,
-        telescope = {
-            enabled = true,
-            -- style = "nvchad"
-        },
-        which_key = true,
-    }
-    -- TODO: integrations https://github.com/catppuccin/nvim#integrations
-})
 
 -- setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
@@ -501,7 +546,7 @@ end, { desc = "close buffer" })
 
 vim.api.nvim_create_autocmd({"BufFilePost"}, {
     group = augroup,
-    pattern = "*.cpp,*.h",
+    pattern = "*.cpp,*.h,*.c,*.cc",
     callback = function()
         vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
     end,
