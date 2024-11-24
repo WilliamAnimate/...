@@ -1,6 +1,11 @@
 # ...
 
-my dotfiles for swayfx.
+My dotfiles for Artix OpenRC/Wayland/SwayFX/Kitty/Fish/Fisher/nvim/Yazi/GNU/Linux.
+
+(SystemD users accepted[^1] too- but requires slight modifications)
+
+[^1]: Not really. I don't accept you guys[^2]. SystemD sucks and you should never use it, but init freedom is about using whatever init you want, including SystemD. If you are content with systemd (ew), then keep doing your thing.
+[^2]: That's a joke. I'm just not a fan of SystemD.
 
 ## How to
 
@@ -8,13 +13,16 @@ i mean its pretty easy to apply. you need to first...
 
 <!-- markdownlint violations live here. -->
 <details>
-<summary>im an undertale fan i cant read</summary>
+<summary>Quick start</summary>
 
-here's a bash oneliner:
+If you have a clean install or have an empty `.config`.
 
 ```sh
 paru -S stow mako fish btop kitty neovim yazi rofi-wayland thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq --needed && sudo chsh $(whoami) -s /bin/fish && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow . && curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher && fisher install oh-my-fish/theme-bobthefish && fisher install franciscolourenco/done
 ```
+
+> [!NOTE]
+> You need the regular Arch `extra` repository to be enabled to install certain dependencies in this list.
 
 </details>
 
@@ -29,6 +37,9 @@ pacman -S stow curl --needed
 ```sh
 paru -S mako fish btop kitty neovim yazi rofi-wayland thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq --needed
 ```
+
+> [!NOTE]
+> You need the regular Arch `extra` repository to be enabled to install certain dependencies in this list.
 
 ### or if you like yay...
 
