@@ -29,11 +29,6 @@ export EDITOR=nvim
 
 alias sudo='doas'
 alias v='nvim'
-alias vi='nvim'
-# alias vim='nvim'
-alias mem='~/.config/scripts/memory'
-alias vol='~/.config/scripts/volume'
-alias bright='~/.config/scripts/brightness'
 alias swaps="free --mega -h; echo "\n"; zramctl; echo "\n"; swapon --show"
 alias cd='z'
 alias y='yazi'
@@ -76,9 +71,7 @@ alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'          # List amount of -gi
 
 # Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
-
-# Get the error messages from journalctl
-alias jctl="journalctl -p 3 -xb"
+alias cleanupagressive='pacman -Qqd | pacman -Rsu --print -'
 
 alias dmesg="sudo /bin/dmesg -L=always"
 
