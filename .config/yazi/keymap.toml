@@ -4,6 +4,9 @@
 
 [manager]
 
+prepend_keymap = [
+  { on   = [ ".", "s" ], run  = "plugin what-size", desc = "Calc size of selection or cwd" },
+]
 keymap = [
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = "<C-[>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },

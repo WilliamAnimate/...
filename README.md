@@ -114,6 +114,14 @@ more bloat! woooooooooooo
 sudo pacman -S tumbler
 ```
 
+### Yazi: add what-size plugin for yazi
+
+Trigger it with `.s`. You can configure it in `.config/yazi/keymap.toml`
+
+```sh
+ya pack -a 'pirafrank/what-size'
+```
+
 ### delete my system
 
 ```sh
