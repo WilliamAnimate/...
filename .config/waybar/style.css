@@ -49,8 +49,9 @@
 #waybar {
     background: rgba(30, 30, 46, 100); /* 1e1e2e */
     color: @white;
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-family: "fira code nerd font";
+    /* font-family: "fira code"; */
 }
 
 /* Each module */
