@@ -21,11 +21,16 @@ i mean its pretty easy to apply. you need to first...
 If you have a clean install or have an empty `.config`.
 
 ```sh
-paru -S stow mako fish btop kitty neovim yazi rofi-wayland thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq --needed && sudo chsh $(whoami) -s /bin/fish && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow . && curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher && fisher install oh-my-fish/theme-bobthefish && fisher install franciscolourenco/done
+paru -S stow mako fish btop kitty neovim yazi rofi-wayland swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq --needed && sudo chsh $(whoami) -s /bin/fish && git clone https://github.com/WilliamAnimate/....git --depth=1 && cd ... && stow . && curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher && fisher install oh-my-fish/theme-bobthefish && fisher install franciscolourenco/done
 ```
 
 > [!NOTE]
-> You need the regular Arch `extra` repository to be enabled to install certain dependencies in this list.
+> If you use Artix, you need the regular Arch `extra` repository to be enabled to install certain dependencies in this list.
+
+> [!NOTE]
+> If you use Artix, you need a modified pkgbuild to build swayfx. you need to change the dbus impl to libelogind
+
+also i know github markdown is broken here, github skill issue
 
 </details>
 
@@ -38,11 +43,14 @@ pacman -S stow curl --needed
 ## then find out the other deps it has.
 
 ```sh
-paru -S mako fish btop kitty neovim yazi rofi-wayland thunar thunar-archive-plugin swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq --needed
+paru -S mako fish btop kitty neovim yazi rofi-wayland swayfx swaybg swaylock-effects waybar autotiling-rs grim slurp jq --needed
 ```
 
 > [!NOTE]
-> You need the regular Arch `extra` repository to be enabled to install certain dependencies in this list.
+> If you use Artix, you need the regular Arch `extra` repository to be enabled to install certain dependencies in this list.
+
+> [!NOTE]
+> If you use Artix, you need a modified pkgbuild to build swayfx. you need to change the dbus impl to libelogind
 
 ### or if you like yay...
 
@@ -107,12 +115,6 @@ idk where to find it. perhaps [google](https://google.com) it yourself. (or [duc
 ## Further configuration
 
 more bloat! woooooooooooo
-
-### image file previews in thunar
-
-```sh
-sudo pacman -S tumbler
-```
 
 ### Yazi: add what-size plugin for yazi
 
