@@ -74,9 +74,9 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
 
 # nice (no not the priority thing)
 # not nice.
-bindsym $mod+Shift+s exec grim - | wl-copy && notify-send low "screenshot taken"
-bindsym print exec wl-copy < <(grim -g "$(slurp)" -)
-bindsym Shift+print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)"/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
+bindsym $mod+Shift+s exec grim - | wl-copy --type image/png && notify-send low "screenshot taken"
+bindsym print exec wl-copy --type image/png < <(grim -g "$(slurp)" -)
+bindsym Shift+print exec grim -g "$(slurp)" "$(xdg-user-dir)"/Pictures/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
 # bindsym Print exec flameshot gui
 
 # font for window titles in tabbed or stacked mode, or whenever its visible.
