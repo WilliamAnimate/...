@@ -37,7 +37,9 @@ alias y='yazi'
 
 alias synctime="sudo systemctl start systemd-timesyncd && sleep 1 && sudo systemctl stop systemd-timesyncd"
 
-alias rec="wf-recorder -f"
+alias rec="wf-recorder -a=alsa_output.pci-0000_00_14.2.analog-stereo.monitor -f"
+
+alias fastfetch="fastfetch --color '4;95' --logo-color-1 '3;95'"
 
 ## Useful aliases
 # Replace ls with eza
@@ -79,8 +81,6 @@ alias dmesg="sudo /bin/dmesg -L=always"
 
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-
-export MANPAGER="page"
 
 zoxide init fish | source
 
