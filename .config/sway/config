@@ -2,9 +2,12 @@
 set $mod Mod4
 
 # output * bg ~/Polarnight_c.jpg fill
-output * bg ~/chiptune_hell_recolored.png fill
+# output * bg ~/chiptune_hell_recolored.png fill
+output * bg ~/1710282336789004.png fill
 # exec_always swaybg -i ~/glorious\ leo.jpg
 exec autotiling-rs
+
+seat seat0 xcursor_theme catppuccin-mocha-pink-cursors
 
 set $ws1 1
 set $ws2 2
