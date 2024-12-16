@@ -464,7 +464,22 @@ require("lazy").setup({
             { "<F2>", "<cmd>lua require ('renamer').rename()<cr>" }
         },
         opts = {}
-    }
+    },
+
+    {
+        "hedyhli/outline.nvim",
+        lazy = true,
+        cmd = { "Outline", "OutlineOpen" },
+        keys = {
+            { " o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+        },
+        opts = {
+            preview_window = {
+                live = true,
+            }
+            -- TODO: fix icons lmao, please function icon not fakebook
+        },
+    },
 }, lazy_config);
 
 -- setup must be called before loading
