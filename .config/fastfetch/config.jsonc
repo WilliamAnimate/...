@@ -3,7 +3,7 @@
     "display": {
         "separator": "  ",
         "constants": [
-            "─────────────────" // {$1}, used in Custom module
+            "─────────────────────────" // {$1}, used in Custom module
         ],
         "key": {
             "type": "icon",
@@ -41,7 +41,6 @@
         },
         "os",
         "kernel",
-        "lm",
         "de",
         "wm",
         "shell",
