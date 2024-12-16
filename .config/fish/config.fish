@@ -75,7 +75,7 @@ alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'          # List amount of -gi
 
 # Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
-alias cleanupagressive='pacman -Qqd | sudo pacman -Rsu -'
+alias cleanupagressive='pacman -Qqd | sudo pacman -Rnsu -'
 
 alias dmesg="sudo /bin/dmesg -L=always"
 
